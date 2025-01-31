@@ -1,0 +1,2 @@
+#!/bin/bash
+docker container ps | grep heavyai | awk '{print $1}'

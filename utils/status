@@ -1,0 +1,3 @@
+#!/bin/bash
+docker container ps --format "{{.Image}} {{.Status}}" \
+-f status=running | grep heavyai\/

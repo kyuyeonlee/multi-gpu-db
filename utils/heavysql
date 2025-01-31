@@ -1,0 +1,8 @@
+#!/bin/bash
+# dbs: tpchsf1
+#      tpchsf1sharded
+#
+#      tpchsf10
+#      tpchsf10sharded
+# sharded for multi(2) gpus.
+docker exec -it $(./container_id) bin/heavysql -p HyperInteractive --db tpchsf10sharded

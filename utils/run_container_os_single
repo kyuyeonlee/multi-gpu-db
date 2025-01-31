@@ -1,0 +1,7 @@
+#!/bin/bash
+docker run -d --gpus='"device=0"' \
+-v /data/klee965/var/lib/heavyai:/var/lib/heavyai \
+-v /data/klee965/benchmarks:/opt/benchmarks/ \
+-p 6273-6278:6273-6278 \
+heavyai/core-os-cuda:latest
+
