@@ -1,0 +1,2 @@
+#!/bin/bash
+for file in *.tbl; do     sed 's/|$//' "$file" > "${file%.tbl}.csv"; done
