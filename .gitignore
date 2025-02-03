@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# HeavyAi confing files
+heavy.conf
+log
