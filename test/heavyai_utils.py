@@ -1,6 +1,9 @@
 import heavyai
 import pandas as pd
 from time import perf_counter
+import os
+
+SSB_QUERIES = ['1.1', '1.2', '1.3', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '4.1', '4.2', '4.3']
 
 
 class HeavyAITester:
@@ -32,6 +35,8 @@ class HeavyAITester:
         Returns:
             runtime of query
         """
+        assert os.path.exists(query_path), "Query file does not exist"
+
         with open(query_path, "r") as queryfile:
             query = queryfile.read()
 
@@ -49,6 +54,37 @@ class HeavyAITester:
                 return -1
 
         return pend - pstart
+    
+    def run_ssb_qnum(self, qnum: str) -> float:
+        """
+        Args:
+            qnum: ssb query number in format 'x.y'
+        Returns:
+            runtime of query
+        """
+
+        qpath = (
+            "/home/klee965/src/db_multi_gpu/ssb/queries/"
+            + "q"
+            + qnum
+            + ".sql"
+        )
+
+        return self.run_query(qpath)
+    
+    def run_ssb_all(self) -> dict:
+        """
+        Args:
+            None
+        Returns:
+            dictionary of query number : runtime
+        """
+        result = {}
+
+        for qnum in SSB_QUERIES:
+            result[qnum] = self.run_ssb_qnum(qnum)
+
+        return result
 
     def run_tpch_qnum(self, qnum: int) -> float:
         """
