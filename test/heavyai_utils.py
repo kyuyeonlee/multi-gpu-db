@@ -4,6 +4,7 @@ from time import perf_counter
 import os
 
 SSB_QUERIES = ['1.1', '1.2', '1.3', '2.1', '2.2', '2.3', '3.1', '3.2', '3.3', '4.1', '4.2', '4.3']
+SSB_CUSTOM_QUERIES = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
 class HeavyAITester:
@@ -72,6 +73,23 @@ class HeavyAITester:
 
         return self.run_query(qpath)
     
+    def run_ssb_custom_qnum(self, qnum: str) -> float:
+        """
+        Args:
+            qnum: ssb query number in format 'n'
+        Returns:
+            runtime of query
+        """
+
+        qpath = (
+            "/home/klee965/src/db_multi_gpu/ssb/queries/custom/"
+            + "q"
+            + qnum
+            + ".sql"
+        )
+
+        return self.run_query(qpath)
+    
     def run_ssb_all(self) -> dict:
         """
         Args:
@@ -86,6 +104,20 @@ class HeavyAITester:
 
         return result
 
+    def run_ssb_custom_all(self) -> dict:
+        """
+        Args:
+            None
+        Returns:
+            dictionary of query number : runtime
+        """
+        result = {}
+
+        for qnum in SSB_CUSTOM_QUERIES:
+            result[qnum] = self.run_ssb_custom_qnum(qnum)
+
+        return result
+    
     def run_tpch_qnum(self, qnum: int) -> float:
         """
         Args:
