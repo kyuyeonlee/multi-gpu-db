@@ -176,3 +176,4 @@ cython_debug/
 # HeavyAi confing files
 heavy.conf
 log
+utils/queryplans
