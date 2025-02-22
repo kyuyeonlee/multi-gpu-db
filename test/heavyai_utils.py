@@ -141,6 +141,20 @@ class HeavyAITester:
         )
 
         return self.run_query(qpath)
+    
+    def run_tpch_batch(self, qnums) -> dict:
+        """
+        Args:
+            None
+        Returns:
+            dictionary of query number : runtime
+        """
+        result = {}
+
+        for qnum in qnums:
+            result[qnum] = self.run_tpch_qnum(qnum)
+
+        return result
 
     def run_tpch_all(self) -> dict:
         """

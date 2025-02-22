@@ -2,12 +2,12 @@ import pandas as pd
 from heavyai_utils import HeavyAITester
 
 
-perfnums = {i: [] for i in range(1, 23)}
+perfnums = {i: [] for i in [1, 2, 6, 11, 13, 14, 15, 16, 17, 19]}
 
-tester = HeavyAITester("tpchsf100sharded")
+tester = HeavyAITester("tpchsf100sharded", verbose=True)
 
 for i in range(10):
-    perfrun = tester.run_tpch_all()
+    perfrun = tester.run_tpch_batch([1, 2, 6, 11, 13, 14, 15, 16, 17, 19])
 
     for k in perfnums:
         perfnums[k].append(perfrun[k])
