@@ -31,3 +31,10 @@ where (
         and l_shipmode in ('AIR', 'AIR REG')
         and l_shipinstruct = 'DELIVER IN PERSON'
     );
+
+--   LogicalAggregate(group=[{}], revenue=[SUM($0)])
+--   LogicalProject($f0=[*($5, -(1, $6))])
+--     LogicalFilter(condition=[OR(AND(=($17, $1), =($20, 'Brand#12'), OR(=($23, 'SM CASE'), =($23, 'SM BOX'), =($23, 'SM PACK'), =($23, 'SM PKG')), >=($4, 1), <=($4, +(1, 10)), >=($22, 1), <=($22, 5), OR(=($14, 'AIR'), =($14, 'AIR REG')), =($13, 'DELIVER IN PERSON')), AND(=($17, $1), =($20, 'Brand#23'), OR(=($23, 'MED BAG'), =($23, 'MED BOX'), =($23, 'MED PKG'), =($23, 'MED PACK')), >=($4, 10), <=($4, +(10, 10)), >=($22, 1), <=($22, 10), OR(=($14, 'AIR'), =($14, 'AIR REG')), =($13, 'DELIVER IN PERSON')), AND(=($17, $1), =($20, 'Brand#34'), OR(=($23, 'LG CASE'), =($23, 'LG BOX'), =($23, 'LG PACK'), =($23, 'LG PKG')), >=($4, 20), <=($4, +(20, 10)), >=($22, 1), <=($22, 15), OR(=($14, 'AIR'), =($14, 'AIR REG')), =($13, 'DELIVER IN PERSON')))])
+--       LogicalJoin(condition=[true], joinType=[inner])
+--         LogicalTableScan(table=[[tpchsf100sharded, lineitem]])
+--         LogicalTableScan(table=[[tpchsf100sharded, part]])

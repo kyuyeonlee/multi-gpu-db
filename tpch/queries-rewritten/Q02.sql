@@ -26,7 +26,7 @@ from part
     join region on n_regionkey = r_regionkey
     join subquery on subq_ps_partkey = ps_partkey
 where ps_supplycost = min_ps_supplicost
-    and p_size = 14
+    and p_size = 15
     and p_type like '% BRASS'
     and r_name = 'EUROPE'
 order by s_acctbal desc,
